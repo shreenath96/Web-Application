@@ -1,0 +1,158 @@
+<div class="bg-color">
+    <div class="header">
+        <a class="logo" href="https://www2.gmu.edu/">
+            <img src="../../assets/logo.png" alt="GMU Logo" />
+        </a>
+        <span>Department of Computer Science</span>
+    </div>
+    <div class="conatiner">
+        <div id="index-link">
+            <h4>Want to go back? <a routerLink="/homepage">Home Page.</a></h4>
+        </div>
+        <div class="survey">
+            <h1>Student Survey</h1>
+            <div *ngIf="!submitted">
+                <p>
+                    <em>Your feedback is valuable</em>
+                </p>
+                <form autocomplete="on" [formGroup]="surveyForm" (ngSubmit)="submit()">
+                    <fieldset>
+                        <legend>Personal Information</legend>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label>First name*</label>
+                                </td>
+                                <td>
+                                    <input id="firstName" type="text" formControlName="firstname" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Last name*</label>
+                                </td>
+                                <td>
+                                    <input id="lastName" type="text" formControlName="lastname" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Street Address*</label>
+                                </td>
+                                <td>
+                                    <input id="address" type="text" formControlName="street_add" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>City*</label>
+                                </td>
+                                <td>
+                                    <input id="city" type="text" formControlName="city" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>State*</label>
+                                </td>
+                                <td>
+                                    <input id="state" type="text" formControlName="state" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Zip Code*</label>
+                                </td>
+                                <td>
+                                    <input id="zipcode" type="number" formControlName="zip" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Telephone No.*</label>
+                                </td>
+                                <td>
+                                    <input id="telephone" type="tel" placeholder="(xxx) xxx-xxxx"
+                                        formControlName="ph" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Email Id. *</label>
+                                </td>
+                                <td>
+                                    <input id="email" type="email" placeholder="username@host.com"
+                                        formControlName="email" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Date of Survey*</label>
+                                </td>
+                                <td>
+                                    <input id="dateOfSurvey" type="date" formControlName="date" />
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Feedback</legend>
+                        <table>
+                            <tr>
+                                <td>
+                                    <label>What did you like the most about GMU?</label>
+                                </td>
+                                <td>
+                                    <span *ngFor="let option of checkboxes">
+                                        <input name="like" type="checkbox" [value]="option" />{{option}}
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>What interested you the most in GMU? *</label>
+                                </td>
+                                <td>
+                                    <span *ngFor="let option of radioButtons">
+                                        <input name="interest" type="radio" [value]="option"
+                                            formControlName="interest" />{{option}}
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Additional Comments</label>
+                                </td>
+                                <td>
+                                    <textarea name="other" rows="1" formControlName="comments"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label>How likey are you to recommend GMU to others? *</label></td>
+                                <td>
+                                    <select id="recommend" formControlName="recommend">
+                                        <option value="">--Select--</option>
+                                        <option value="Very Likey">Very Likey</option>
+                                        <option value="Likey">Likey</option>
+                                        <option value="Unlikey">Unlikey</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <br />
+                    <input type="submit" value="Submit" />
+                    <input type="reset" value="Reset" />
+                </form>
+            </div>
+            <div *ngIf="submitted" class="height text-center">
+                <h2>Thank you for your feedback!</h2>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a class="logo" href="https://www2.gmu.edu/">
+            <img src="../../assets/logo.png" alt="GMU Logo" />
+        </a>
+    </div>
+</div>
